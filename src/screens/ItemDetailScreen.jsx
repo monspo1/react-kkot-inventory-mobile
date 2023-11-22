@@ -117,13 +117,12 @@ const ItemDetailScreen = ({ route, navigation }) => {
     const handleExpirationChange = (value) => {
         setTextForExpiration(value);
         
-        const selectedDate = moment(value);
+        const selectedDate = moment(value, 'YYYY-MM-DD');
         if (!selectedDate.isValid() || selectedDate.isBefore(moment(minDate)) || selectedDate.isAfter(moment(maxDate))) {
             setExpirationError(true);
         } else {
             setExpirationError(false);
         }
-        // https://stackoverflow.com/questions/71216463/allowing-null-value-for-react-native-datetimepicker
     };
 
     const checkExpirationError = (value) => {
@@ -133,7 +132,7 @@ const ItemDetailScreen = ({ route, navigation }) => {
             return;
         }
 
-        const momentedVal = moment(value);
+        const momentedVal = moment(value, 'YYYY-MM-DD');
         err = !momentedVal.isValid() || momentedVal.isBefore(moment(minDate)) || momentedVal.isAfter(moment(maxDate));
         setExpirationError(err);
     }
