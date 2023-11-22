@@ -33,3 +33,8 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Files
+package-lock.json
+yarn.lock
+credentials.js
