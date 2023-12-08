@@ -47,7 +47,7 @@ const BarcodeScreen = ({ route, navigation }) => {
   };
 
   const onAccept = async () => {
-    // console.log("---------- ACCEPT BTN -------- "); 8809 2380 09470
+    // console.log("---------- ACCEPT BTN -------- "); 8809 23800 9470
     try {
       const masterItems = collection(db, "master-items");
       const q = query(masterItems, where("barcode", "==", barcode));
