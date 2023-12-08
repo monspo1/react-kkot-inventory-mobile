@@ -4,10 +4,12 @@ import { Button, Text } from 'react-native-paper';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import customStyles from "../styles/customStyles";
+import { useNavigation } from '@react-navigation/native';
 
-const LoginStatusComp = ({ navigation }) => {
+const LoginStatusComp = () => {
   const styles = customStyles();
   const [curLoggedinUser, setCurLoggedinUser] = useState(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -32,10 +34,17 @@ const LoginStatusComp = ({ navigation }) => {
       });
   }
 
+  const handleLogin = () => {
+    navigation.navigate('LoginScreen');
+  }
+
   return (
     <View style={styles.welcomeUserContainer}>
       <Text variant="headlineMedium">{ curLoggedinUser ? `Welcome ${curLoggedinUser.email}` : 'Not logged in' }</Text> 
-      { curLoggedinUser && <Button mode="outlined" onPress={handleLogout} style={[{ width: '15%', marginRight: 35 }]}>Logout</Button> }
+      { curLoggedinUser ?
+        <Button mode="outlined" onPress={handleLogout} style={[{ width: '15%', marginRight: 35 }]}>Logout</Button>:
+        <Button mode="outlined" onPress={handleLogin} style={[{ width: '15%', marginRight: 35 }]}>Login</Button>
+      }
     </View>
   )
 }

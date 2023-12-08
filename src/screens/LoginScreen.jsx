@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Image } from 'react-native';
-import { Button, TextInput, Text, HelperText } from 'react-native-paper';
+import { ActivityIndicator, Button, TextInput, Text, HelperText } from 'react-native-paper';
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { setLoaderStatus, setCurLoggedInUser } from './../actions/action' // , 
@@ -15,7 +15,7 @@ const LoginScreen = ({ route, navigation }) => {
     const [passwordError, setPasswordError] = useState(false);
     const [loginResMsg, setLoginResMsg] = useState('');
     const [isSecureText, setIsSecureText] = useState(true);
-
+    const [loginSuccess, setLoginSuccess] = useState(false);
     // const spinner = useSelector(state => state.loading);
     // const windowWidth = useWindowDimensions().width;
     const styles = customStyles();
@@ -43,14 +43,18 @@ const LoginScreen = ({ route, navigation }) => {
         signInWithEmailAndPassword(auth, email, password)
           .then((result) => {
             // console.log('result: ', result)
+            // setLoginSuccess(true)
             const { email, uid, displayName, photoURL } = result.user;
             const loggedInUser = { email, uid, displayName, photoURL };
             // dispatch(setCurLoggedInUser(loggedInUser));
-            navigation.navigate('HomeScreen')
-            setLoginResMsg(`Welcome ${JSON.stringify(result?.user?.email)}`)
+            dispatch(setLoaderStatus(false));
+            // navigation.navigate('HomeScreen')
+            navigation.reset({ index: 0, routes: [{ name: 'HomeScreen' }], });
 
+            setLoginResMsg(`Welcome ${JSON.stringify(result?.user?.email)}`)
           }).catch((error) => {
             console.log('error: ', error)
+            dispatch(setLoaderStatus(false));
             setLoginResMsg(JSON.stringify(error))
           });
       }
@@ -60,8 +64,10 @@ const LoginScreen = ({ route, navigation }) => {
       signOut(auth)
         .then(() => {
           console.log('User signed out');
+          dispatch(setLoaderStatus(false));
         }).catch((error) => {
           console.log('error: ', error)
+          dispatch(setLoaderStatus(false));
         });
     }
 
@@ -73,7 +79,14 @@ const LoginScreen = ({ route, navigation }) => {
       return !(email !== "" && password !== "" && emailError === false && passwordError === false)
     }
 
+
     return (<>
+      <ActivityIndicator
+        animating={spinner}
+        hidesWhenStopped={true}
+        style={{ position: "absolute", top: "40%", left: "50%", zIndex: 20 }}
+        size="large"
+      />
         <View style={styles.centeredContainer}>
             <Image style={styles.kkotLogoStyle}
               source={require('../../assets/images/njkkot_logo.png')}

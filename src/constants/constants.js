@@ -1,15 +1,15 @@
 export const itemCategoryArr = [
-    { label: 'Cans / Glasses', value: 'option1', example: "Ex) 캔 음식, 보존 음식류, ..." },
-    { label: 'Clothing / Shoes', value: 'option2', example: "Ex) 의류, 천, 신발류, ..." },
-    { label: 'Diaper / Pads / Etc', value: 'option3', example: "Ex) 기저귀, 패드, 환자용 깔개, ..." },
-    { label: 'Flours', value: 'option4', example: "Ex) 가루로 된 것, 밀가루, 옥수수가루, 녹말가루, ..." },
-    { label: 'Furniture', value: 'option5', example: "Ex) 의자, 데스크, ...." },
-    { label: 'Grains / Cereals', value: 'option6', example: "Ex) 쌀, 콩, 잡곡, 시리얼, ..." },
-    { label: 'Medical Supplies', value: 'option7', example: "Ex) 의약품, 의료용품, 의료기구, ..." },
-    { label: 'Necessities / Coffee', value: 'option8', example: "Ex) 설탕, 소금, 소스, 양념, 숩, 커피, ..." },
-    { label: 'Others', value: 'option9', example: "Ex) 기타용품, 장난감, 우산, ...." },
-    { label: 'Pastas / Noodles', value: 'option10', example: "Ex) 파스타, 스파게티, 라면, 국수, ..." },
-    { label: 'Snacks / Juice', value: 'option11', example: "Ex) 쿠키, 초콜렛, 캔디, 쥬스, 음료, ..." },
+    { label: 'Cans / Glasses', value: 'Cans/Glasses', example: "Ex) 캔 음식, 보존 음식류, ..." },
+    { label: 'Clothing / Shoes', value: 'Clothing/Shoes', example: "Ex) 의류, 천, 신발류, ..." },
+    { label: 'Diaper / Pads / Etc', value: 'Diaper/Pads/Etc', example: "Ex) 기저귀, 패드, 환자용 깔개, ..." },
+    { label: 'Flours', value: 'Flours', example: "Ex) 가루로 된 것, 밀가루, 옥수수가루, 녹말가루, ..." },
+    { label: 'Furniture', value: 'Furniture', example: "Ex) 의자, 데스크, ...." },
+    { label: 'Grains / Cereals', value: 'Grains/Cereals', example: "Ex) 쌀, 콩, 잡곡, 시리얼, ..." },
+    { label: 'Medical Supplies', value: 'MedicalSupplies', example: "Ex) 의약품, 의료용품, 의료기구, ..." },
+    { label: 'Necessities / Coffee', value: 'Necessities/Coffee', example: "Ex) 설탕, 소금, 소스, 양념, 숩, 커피, ..." },
+    { label: 'Others', value: 'Others', example: "Ex) 기타용품, 장난감, 우산, ...." },
+    { label: 'Pastas / Noodles', value: 'Pastas/Noodles', example: "Ex) 파스타, 스파게티, 라면, 국수, ..." },
+    { label: 'Snacks / Juice', value: 'Snacks/Juice', example: "Ex) 쿠키, 초콜렛, 캔디, 쥬스, 음료, ..." },
 ];
 
 export const categoryColors = [
@@ -29,7 +29,7 @@ export const categoryColors = [
 export const boxInitialColors = [
     { backgroundColor: '#800000', color: 'white' },{ backgroundColor: '#c71585', color: 'white' },
     { backgroundColor: '#ff7f50', color: 'white' },{ backgroundColor: '#00bfff', color: 'white' },
-    { backgroundColor: '#ffd700', color: 'white' },{ backgroundColor: '#adff2f', color: 'white' },
+    { backgroundColor: '#ffd700', color: 'white' },{ backgroundColor: '#adff2f', color: '#006600' },
     { backgroundColor: '#006400', color: 'white' },{ backgroundColor: '#483d8b', color: 'white' },
     { backgroundColor: '#4169e1', color: 'white' },{ backgroundColor: '#20b2aa', color: 'white' },
     { backgroundColor: '#4b0082', color: 'white' },{ backgroundColor: '#f4a460', color: 'white' },
@@ -38,28 +38,28 @@ export const boxInitialColors = [
 
 export const tempDataForBoxList = [
     { 
-        box_initial: "BH-01",
+        box_initial: "NJK-99",
         box_desc: "box items by asldfjk, aslkdfja, afslkj",
         items_count: 7,
         items_weight: 35.98,
         items_price: 123.99,
     },
     { 
-        box_initial: "KF-01",
+        box_initial: "KKT-99",
         box_desc: "box items by asldfjk, aslkdfja, afslkj",
         items_count: 5,
         items_weight: 24.98,
         items_price: 77.99,
     },
     { 
-        box_initial: "MM-03",
+        box_initial: "WWW-93",
         box_desc: "box items by asldfjk, aslkdfja, afslkj",
         items_count: 11,
         items_weight: 44.32,
         items_price: 99.99,
     },
     { 
-        box_initial: "BH-01",
+        box_initial: "ABC-89",
         box_desc: "box items by asldfjk, aslkdfja, afslkj",
         items_count: 17,
         items_weight: 11.98,

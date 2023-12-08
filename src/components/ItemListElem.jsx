@@ -53,7 +53,7 @@ const ItemListElem = ({route, elem, id, onDuplicate, navigation}) => {
 
     // console.log('elem.item_expiration: ', elem.item_expiration)
     return (
-        <View key={id}  style={{ width: '100%'}}>
+        <View key={id}  style={{ width: '95%', marginLeft: 20  }}>
             <List.Item
                 title={elem.item_content}
                 titleStyle={listElemStyles.titleStyle}

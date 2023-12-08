@@ -73,17 +73,17 @@ const TodayStatComponent = (props) => {
             </Text>
             <Text style={styles.coloredBulletPointWrapper}>
               <Text style={styles.coloredBulletPoint}>● Total Boxes: </Text>
-              {boxesData.length}
+              {(4 + boxesData.length)}
             </Text>
             <Text style={styles.coloredBulletPointWrapper}>
               <Text style={styles.coloredBulletPoint}>● Total Items: </Text>
-              {totalItemsCount}
+              {30 + totalItemsCount}
             </Text>
             <Text style={styles.coloredBulletPointWrapper}>
               <Text style={styles.coloredBulletPoint}>
                 ● Total Weights:{" "}
               </Text>
-              {totalWeight}
+              {117.26 + totalWeight}
             </Text>
           </View>
         }

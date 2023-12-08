@@ -23,14 +23,14 @@ const ItemDetailScreen = ({ route, navigation }) => {
     const curBoxItems = useSelector(state => state.curBoxItems);
     const curBoxId = useSelector(state => state.curBoxId);
     
-    const [textForBarcode, setTextForBarcode] = useState(itemSelected.item_barcode)
+    const [textForBarcode, setTextForBarcode] = useState(itemSelected.item_barcode.toString())
     const [textForBrand, setTextForBrand] = useState(itemSelected.item_brand)
     const [textForContent, setTextForContent] = useState(itemSelected.item_content)
-    const [textForWeightOz, setTextForWeightOz] = useState(itemSelected.item_weight_oz)
-    const [textForWeightLbs, setTextForWeightLbs] = useState(itemSelected.item_weight_lbs)
-    const [textForWeightG, setTextForWeightG] = useState(itemSelected.item_weight_g)
-    const [textForPrice, setTextForPrice] = useState(itemSelected.item_price)
-    const [textForItemCount, setTextForItemCount] = useState(itemSelected.item_count)
+    const [textForWeightOz, setTextForWeightOz] = useState(itemSelected.item_weight_oz.toString())
+    const [textForWeightLbs, setTextForWeightLbs] = useState(itemSelected.item_weight_lbs.toString())
+    const [textForWeightG, setTextForWeightG] = useState(itemSelected.item_weight_g.toString())
+    const [textForPrice, setTextForPrice] = useState(itemSelected.item_price.toString())
+    const [textForItemCount, setTextForItemCount] = useState(itemSelected.item_count.toString())
     const [textForExpiration, setTextForExpiration] = useState(null)
     const [checkedRadioBtnForCategory, setCheckedRadioBtnForCategory] = useState(null);
     const [barcodeError, setBarcodeError] = useState(false);
