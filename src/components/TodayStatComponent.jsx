@@ -59,12 +59,12 @@ const TodayStatComponent = (props) => {
 
   return(<>
     <View style={styles.containerForTodayWorkSummary}>
-      <Card.Title
+      {/* <Card.Title
         style={styles.todayStatStyle}
         title="Today's Stat"
         titleStyle={{ fontSize: 40, lineHeight: 45, marginBottom: 10 }} 
         subtitle={
-          <View style={{ marginLeft: 20, }}>
+          <View style={{ marginLeft: 20 }}>
             <Text style={styles.coloredBulletPointWrapper}>
               <Text style={styles.coloredBulletPoint}>
                 ● Selected Date:{" "}
@@ -88,20 +88,41 @@ const TodayStatComponent = (props) => {
           </View>
         }
         right={() => (
-          /* # 1. original calendar icon button
-          <IconButton icon="calendar" size={50} mode={"contained"} iconColor="#588700" 
-            style={{ marginRight: 30 }} onPress={() => setOpenDatePickerModal(true)}/>
-          //*/
-          /* # 2. clickable Calendar avatar icon
-          <TouchableOpacity onPress={() => setOpenDatePickerModal(true)}>
-            <Avatar.Icon size={100} icon="calendar" style={{ marginRight: 30 }} backgroundColor={"#7da82c"}/>
-          </TouchableOpacity> 
-          //*/
           <Avatar.Icon size={100} icon="finance" // finance chart-bar
             style={{ marginRight: 30 }} backgroundColor={"#7da82c"}
           />
         )}
-      />
+      /> */}
+      <Card style={styles.todayStatStyle}>
+      <Card.Content style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <View>
+          <Text style={{ fontSize: 40, lineHeight: 45, marginBottom: 10 }}>Today's Stat</Text>
+          <View style={{ marginLeft: 20, }}>
+            <Text style={styles.coloredBulletPointWrapper}>
+              <Text style={styles.coloredBulletPoint}>
+                ● Selected Date:{" "}
+              </Text>
+              {date ? date.toLocaleDateString('en-US') : getTodayString()}
+            </Text>
+            <Text style={styles.coloredBulletPointWrapper}>
+              <Text style={styles.coloredBulletPoint}>● Total Boxes: </Text>
+              {(4 + boxesData.length)}
+            </Text>
+            <Text style={styles.coloredBulletPointWrapper}>
+              <Text style={styles.coloredBulletPoint}>● Total Items: </Text>
+              {30 + totalItemsCount}
+            </Text>
+            <Text style={styles.coloredBulletPointWrapper}>
+              <Text style={styles.coloredBulletPoint}>
+                ● Total Weights:{" "}
+              </Text>
+              {117.26 + totalWeight}
+            </Text>
+          </View>
+        </View>
+        <Avatar.Icon size={100} icon="finance" style={{ marginRight: 30 }} backgroundColor={"#7da82c"} />
+      </Card.Content>
+    </Card>
     </View>
     <Portal>
       <Modal

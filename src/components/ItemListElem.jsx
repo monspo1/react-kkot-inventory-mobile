@@ -47,7 +47,7 @@ const ItemListElem = ({route, elem, id, onDuplicate, navigation}) => {
     }
 
     // const getElementBackgroundColor = () => {
-    //     const elemColor = categoryColors.find(item => item.label === elem.item_category);
+    //     const elemColor = categoryColors.find(item => item.label === elem.category);
     //     return elemColor ? { backgroundColor: elemColor.backgroundColor, color: elemColor.color } : {}
     // }
 
@@ -55,15 +55,15 @@ const ItemListElem = ({route, elem, id, onDuplicate, navigation}) => {
     return (
         <View key={id}  style={{ width: '95%', marginLeft: 20  }}>
             <List.Item
-                title={elem.item_content}
+                title={elem.content}
                 titleStyle={listElemStyles.titleStyle}
                 description={() => 
                     <View style={{ flexDirection: 'row', }}>
-                        <Text style={[ listElemStyles.categoryStyle, getCategoryColors(elem.item_category)]}>
-                            {(elem?.item_category).toUpperCase()}
+                        <Text style={[ listElemStyles.categoryStyle, getCategoryColors(elem.category)]}>
+                            {(elem?.category).toUpperCase()}
                         </Text>
                         <Text style={listElemStyles.subtitleGrayStyle}>
-                            {elem.item_brand}   |
+                            {elem.brand}   |
                         </Text>
                         <Text style={listElemStyles.subtitleBlackStyle}>
                             {` `}{elem.item_weight_lbs}{` `}

@@ -16,7 +16,7 @@ const LoginScreen = ({ route, navigation }) => {
     const [loginResMsg, setLoginResMsg] = useState('');
     const [isSecureText, setIsSecureText] = useState(true);
     const [loginSuccess, setLoginSuccess] = useState(false);
-    // const spinner = useSelector(state => state.loading);
+    const spinner = useSelector(state => state.loading);
     // const windowWidth = useWindowDimensions().width;
     const styles = customStyles();
     const dispatch = useDispatch()

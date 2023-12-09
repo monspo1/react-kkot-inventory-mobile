@@ -99,15 +99,15 @@ const ItemListScreen = ({ route, navigation }) => {
     const newEmptyObj = {
       box_id: "",
       item_id: `item-${getUniqueId()}`,
-      item_barcode: "",
-      item_brand: "",
-      item_content: "",
+      barcode: "",
+      brand: "",
+      content: "",
       item_expiration: null,
       item_weight_oz: "",
       item_weight_lbs: "",
       item_weight_g: "",
       item_price: "",
-      item_category: null,
+      category: null,
       item_count: "1",
     };
     navigation.navigate("ItemDetailScreen", { itemSelected: newEmptyObj });
@@ -153,9 +153,9 @@ const ItemListScreen = ({ route, navigation }) => {
     const resObj = {
       box_id: curBoxInitial, // <= Check!!! 전달된 box_id 필요
       item_id: `item-${getUniqueId()}`,
-      item_barcode: receivedLookupItem.barcode,
-      item_brand: receivedLookupItem.brand ? receivedLookupItem.brand : "",
-      item_content: receivedLookupItem.content ? receivedLookupItem.content : "",
+      barcode: receivedLookupItem.barcode,
+      brand: receivedLookupItem.brand ? receivedLookupItem.brand : "",
+      content: receivedLookupItem.content ? receivedLookupItem.content : "",
       item_expiration: null,
       item_weight_oz: receivedLookupItem.item_weight_oz
         ? receivedLookupItem.item_weight_oz: "",
@@ -163,7 +163,7 @@ const ItemListScreen = ({ route, navigation }) => {
         ? receivedLookupItem.item_weight_lbs : "",
       item_weight_g: receivedLookupItem.item_weight_g ? receivedLookupItem.item_weight_g : "",
       item_price: receivedLookupItem.item_price ? receivedLookupItem.item_price : "",
-      item_category: receivedLookupItem.category ? receivedLookupItem.category : null,
+      category: receivedLookupItem.category ? receivedLookupItem.category : null,
       item_count: "1", // ???
     };
     

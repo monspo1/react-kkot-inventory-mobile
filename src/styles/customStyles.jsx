@@ -85,7 +85,7 @@ export default function customStyles() {
     todayStatStyle: {
       backgroundColor: "#dbf77e",
       borderRadius: 20,
-      padding: 25,
+      padding: 15,
       marginLeft: 15,
       marginRight: 15,
       marginTop: 5,

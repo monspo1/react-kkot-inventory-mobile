@@ -65,9 +65,9 @@ const BarcodeScreen = ({ route, navigation }) => {
         const existingObj = {
           box_id: curBoxInitial, // <= Check!!! 전달된 box_id 필요
           item_id: `item-${getUniqueId()}`,
-          item_barcode: barcode,
-          item_brand: foundItem.brand ? foundItem.brand : "",
-          item_content: foundItem.content ? foundItem.content : "",
+          barcode: barcode,
+          brand: foundItem.brand ? foundItem.brand : "",
+          content: foundItem.content ? foundItem.content : "",
           item_expiration: null,
           item_weight_oz: foundItem.item_weight_oz
             ? foundItem.item_weight_oz
@@ -77,7 +77,7 @@ const BarcodeScreen = ({ route, navigation }) => {
             : "",
           item_weight_g: foundItem.item_weight_g ? foundItem.item_weight_g : "",
           item_price: foundItem.item_price ? foundItem.item_price : "",
-          item_category: foundItem.category ? foundItem.category : null,
+          category: foundItem.category ? foundItem.category : null,
           item_count: "1",
         };
         navigation.reset({
