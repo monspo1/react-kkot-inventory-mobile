@@ -23,14 +23,14 @@ const ItemDetailScreen = ({ route, navigation }) => {
     const curBoxItems = useSelector(state => state.curBoxItems);
     const curBoxId = useSelector(state => state.curBoxId);
     
-    const [textForBarcode, setTextForBarcode] = useState(itemSelected.item_barcode)
-    const [textForBrand, setTextForBrand] = useState(itemSelected.item_brand)
-    const [textForContent, setTextForContent] = useState(itemSelected.item_content)
-    const [textForWeightOz, setTextForWeightOz] = useState(itemSelected.item_weight_oz)
-    const [textForWeightLbs, setTextForWeightLbs] = useState(itemSelected.item_weight_lbs)
-    const [textForWeightG, setTextForWeightG] = useState(itemSelected.item_weight_g)
-    const [textForPrice, setTextForPrice] = useState(itemSelected.item_price)
-    const [textForItemCount, setTextForItemCount] = useState(itemSelected.item_count)
+    const [textForBarcode, setTextForBarcode] = useState(itemSelected.barcode.toString())
+    const [textForBrand, setTextForBrand] = useState(itemSelected.brand)
+    const [textForContent, setTextForContent] = useState(itemSelected.content)
+    const [textForWeightOz, setTextForWeightOz] = useState(itemSelected.item_weight_oz.toString())
+    const [textForWeightLbs, setTextForWeightLbs] = useState(itemSelected.item_weight_lbs.toString())
+    const [textForWeightG, setTextForWeightG] = useState(itemSelected.item_weight_g.toString())
+    const [textForPrice, setTextForPrice] = useState(itemSelected.item_price.toString())
+    const [textForItemCount, setTextForItemCount] = useState(itemSelected.item_count.toString())
     const [textForExpiration, setTextForExpiration] = useState(null)
     const [checkedRadioBtnForCategory, setCheckedRadioBtnForCategory] = useState(null);
     const [barcodeError, setBarcodeError] = useState(false);
@@ -44,10 +44,10 @@ const ItemDetailScreen = ({ route, navigation }) => {
     // console.log('itemSelected: ', itemSelected)
     /*
     itemSelected:  {
-        "item_barcode": "092384123-32841",
-        "item_brand": "NIPRO", 
-        "item_category": "Pastas / Noodles", 
-        "item_content": "Hoisan sauce", 
+        "barcode": "092384123-32841",
+        "brand": "NIPRO", 
+        "category": "Pastas / Noodles", 
+        "content": "Hoisan sauce", 
         "item_count": 3, 
         "item_expiration": "2025-08-14T05:00:00.000Z",
         "item_price": "11.98", 
@@ -63,8 +63,8 @@ const ItemDetailScreen = ({ route, navigation }) => {
             if(itemSelected.item_expiration) {
                 setTextForExpiration(new Date(itemSelected.item_expiration))
             }
-            if (itemSelected.item_category) {
-                const targetRadio = getItemValueByLabel(itemSelected.item_category)
+            if (itemSelected.category) {
+                const targetRadio = getItemValueByLabel(itemSelected.category)
                 setCheckedRadioBtnForCategory(targetRadio)
             }
             if(itemSelected.item_count){
@@ -157,16 +157,16 @@ const ItemDetailScreen = ({ route, navigation }) => {
         const resObj = {
             box_id: curBoxId,
             item_id: itemSelected.item_id,
-            item_barcode: textForBarcode,
-            item_brand: textForBrand,
-            item_content: textForContent,
+            barcode: textForBarcode,
+            brand: textForBrand,
+            content: textForContent,
             item_expiration: textForExpiration.toISOString(),
             item_weight_oz: textForWeightOz,
             item_weight_lbs: textForWeightLbs,
             item_weight_g: textForWeightG,
             item_price: textForPrice,
             item_count: textForItemCount,
-            item_category: getItemLabelByValue(checkedRadioBtnForCategory)
+            category: getItemLabelByValue(checkedRadioBtnForCategory)
         }
 
         let newBoxItems = [...curBoxItems];

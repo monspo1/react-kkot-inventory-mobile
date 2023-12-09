@@ -14,7 +14,10 @@ export default function CustomNavigationBar({ navigation, route, options, back }
       { back ? <Appbar.BackAction onPress={navigation.goBack} /> : null }
       <Appbar.Content title={title} titleStyle={{ color: 'white',
         fontSize: 30 }} /> 
-      {/* <LoginStatusComp/> */}
+
+      {/* Only showing the title without back arrow */}
+      {/* <Appbar.Content title={title} titleStyle={{ color: 'white',
+        fontSize: 30 }} /> */}
     </Appbar.Header>
   );
 }

@@ -9,11 +9,18 @@ import HomeScreen from "./src/screens/HomeScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import ItemListScreen from "./src/screens/ItemListScreen";
 import ItemDetailScreen from "./src/screens/ItemDetailScreen";
+import BarcodeScreen from "./src/screens/BarcodeScreen";
 import CustomNavigationBar from "./src/components/CustomNavigationBar";
 import store from "./src/store/store";
-import { customTheme1, customTheme2, customTheme3, customTheme4, customTheme5Light,
-  MaterialDarkTheme, MaterialLightTheme,
-} from './src/styles/customTheme';
+import {
+  customTheme1,
+  customTheme2,
+  customTheme3,
+  customTheme4,
+  customTheme5Light,
+  MaterialDarkTheme,
+  MaterialLightTheme,
+} from "./src/styles/customTheme";
 
 registerTranslation("en", {
   save: "Save",
@@ -37,28 +44,52 @@ registerTranslation("en", {
 const Stack = createStackNavigator();
 
 const App = () => {
-  return (<>
+  return (
+    <>
       <StoreProvider store={store}>
-        <PaperProvider 
-          theme={MaterialLightTheme}
-        >
+        <PaperProvider theme={MaterialLightTheme}>
           <NavigationContainer>
             <Stack.Navigator
               initialRouteName="LoginScreen"
               // initialRouteName="HomeScreen" // for Testing
               // initialRouteName="ItemListScreen" // for Testing
-              // initialRouteName="ItemDetailScreen" // for Testing
-              screenOptions={{ header: (props) => <CustomNavigationBar {...props} /> }}
+              // initialRouteName="ItemDetaislScreen" // for Testing
+              // initialRouteName="BarcodeScreen" // for Testing
+              screenOptions={{
+                header: (props) => <CustomNavigationBar {...props} />,
+              }}
             >
-              <Stack.Screen name="LoginScreen" options={{ headerTitle: 'Log In' }} component={LoginScreen} />
-              <Stack.Screen name="HomeScreen" options={{ headerTitle: 'Boxes' }} component={HomeScreen} />
-              <Stack.Screen name="ItemListScreen"  options={{ headerTitle: "Items" }} component={ItemListScreen} />
-              <Stack.Screen name="ItemDetailScreen" options={{ headerTitle: "Details" }}  component={ItemDetailScreen}/>
+              <Stack.Screen
+                name="LoginScreen"
+                options={{ headerTitle: "Log In" }}
+                component={LoginScreen}
+              />
+              <Stack.Screen
+                name="HomeScreen"
+                options={{ headerTitle: "Boxes" }}
+                component={HomeScreen}
+              />
+              <Stack.Screen
+                name="ItemListScreen"
+                options={{ headerTitle: "Items" }}
+                component={ItemListScreen}
+              />
+              <Stack.Screen
+                name="ItemDetailScreen"
+                options={{ headerTitle: "Details" }}
+                component={ItemDetailScreen}
+              />
+              <Stack.Screen
+                name="BarcodeScreen"
+                options={{ headerTitle: "Barcode" }}
+                component={BarcodeScreen}
+              />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>
       </StoreProvider>
-  </>);
+    </>
+  );
 };
 
 export default App;

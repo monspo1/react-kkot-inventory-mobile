@@ -49,6 +49,7 @@ const BoxListElem  = ({elem, idx, navigation}) => {
         )}
         onPress={() =>
           navigation?.push("ItemListScreen", { selected: idx })
+          // navigation?.navigate("ItemListScreen", { itemSelected: elem })
         }
       />
       <Divider/>
