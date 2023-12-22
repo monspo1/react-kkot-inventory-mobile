@@ -20,10 +20,10 @@ const TodayStatComponent = (props) => {
     let tempWeight = 0;
     boxesData.forEach(box => {
       tempItemCount += box.items_count;
-      tempWeight += box.items_weight;
+      tempWeight += Number(box.items_weight);
     })
     setTotalItemsCount(tempItemCount)
-    setTotalWeight(tempWeight)
+    setTotalWeight(Math.round(tempWeight*100)/100)
 
   }, [boxesData]);
 
@@ -116,7 +116,7 @@ const TodayStatComponent = (props) => {
               <Text style={styles.coloredBulletPoint}>
                 ● Total Weights:{" "}
               </Text>
-              {117.26 + totalWeight}
+              {117.26 + Number(totalWeight)}
             </Text>
           </View>
         </View>
